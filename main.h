@@ -25,7 +25,9 @@ int _printf(const char *format, ...);
 int to_char(va_list args);
 int to_string(va_list args);
 int to_percent(va_list args);
-
+int to_integer(va_list args);
+int print_R(va_list R);
+int printf_bin(va_list val);
 
 
 int _putchar(char c);

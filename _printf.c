@@ -17,6 +17,10 @@ int _printf(const char *format, ...)
 		{"c", to_char},
 		{"s", to_string},
 		{"%", to_percent},
+		{"d", to_integer},
+		{"i", to_integer},
+		{"R", print_R},
+		{"b", printf_bin},
 		{NULL, NULL},
 	};
 
