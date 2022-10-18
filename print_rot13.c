@@ -31,3 +31,25 @@ int print_R(va_list R)
 	}
 	return (i);
 }
+
+/**
+ * unsigned_int - Prints Unsigned integers
+ *
+ * @list: List of all of the argumets
+ *
+ * Return: a count of the numbers
+ */
+
+int unsigned_int(va_list list)
+{
+	unsigned int num;
+
+	num = va_arg(list, unsigned int);
+
+	if (num == 0)
+		return (to_unsgined_num(num));
+
+	if (num < 1)
+		return (-1);
+	return (to_unsgined_num(num));
+}
