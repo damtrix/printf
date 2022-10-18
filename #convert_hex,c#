@@ -1,0 +1,2 @@
+#include "main.h"
+unsigned int convert_x(va_list args, buffer_t *output, unsigned chr flags, int wid, int prec, unsigned char le)
