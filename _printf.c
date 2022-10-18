@@ -21,6 +21,10 @@ int _printf(const char *format, ...)
 		{"i", to_integer},
 		{"R", print_R},
 		{"b", printf_bin},
+		{"u", unsigned_int},
+		{"o", to_octal},
+		{"x", to_hex},
+		{"X", to_heX},
 		{NULL, NULL},
 	};
 
