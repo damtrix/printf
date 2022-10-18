@@ -10,12 +10,12 @@
 
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-  unsigned int i;
+	unsigned int i;
 
-  for (i = 0; i < n; i++)
-    dest[i] = src[i];
-  dest[i] = '\0';
-  return (dest);
+	for (i = 0; i < n; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
 }
 
 /**
@@ -27,68 +27,39 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 
 char *rev_string(char *s)
 {
-  int len;
-  int head;
-  char tmp;
-  char *dest;
+	int len;
+	int head;
+	char tmp;
+	char *dest;
 
-  for (len = 0; s[len] != '\0'; len++)
-    {}
+	for (len = 0; s[len] != '\0'; len++)
+	{}
 
-  dest = malloc(sizeof(char) * len + 1);
-  if (dest == NULL)
-    return (NULL);
+	dest = malloc(sizeof(char) * len + 1);
+	if (dest == NULL)
+		return (NULL);
 
-  _memcpy(dest, s, len);
-  for (head = 0; head < len; head++, len--)
-    {
-      tmp = dest[len - 1];
-      dest[len - 1] = dest[head];
-      dest[head] = tmp;
-    }
-  return (dest);
-}/**
-  * rev_string - reverses a string in place
-  *
-  * @s: string to reverse
-  * Return: A pointer to a character
-  */
-
-char *rev_string(char *s)
-{
-  int len;
-  int head;
-  char tmp;
-  char *dest;
-
-  for (len = 0; s[len] != '\0'; len++)
-    {}
-
-  dest = malloc(sizeof(char) * len + 1);
-  if (dest == NULL)
-    return (NULL);
-
-  _memcpy(dest, s, len);
-  for (head = 0; head < len; head++, len--)
-    {
-      tmp = dest[len - 1];
-      dest[len - 1] = dest[head];
-      dest[head] = tmp;
-    }
-  return (dest);
+	_memcpy(dest, s, len);
+	for (head = 0; head < len; head++, len--)
+	{
+		tmp = dest[len - 1];
+		dest[len - 1] = dest[head];
+		dest[head] = tmp;
+	}
+	return (dest);
 }
 
 /**
- * write_base - sends characters to be written on standard output
+ * _base - sends characters to be written on standard output
  * @str: String to parse
  */
 
 void _base(char *str)
 {
-  int i;
+	int i;
 
-  for (i = 0; str[i] != '\0'; i++)
-    _putchar(str[i]);
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
 }
 
 /**
@@ -97,16 +68,16 @@ void _base(char *str)
  * @base: Base to be calculated by
  * Return: An integer representing the length of a number
  */
- 
+
 unsigned int base_len(unsigned int num, int base)
 {
-  unsigned int i;
+	unsigned int i;
 
-  for (i = 0; num > 0; i++)
-    {
-      num = num / base;
-    }
-  return (i);
+	for (i = 0; num > 0; i++)
+	{
+		num = num / base;
+	}
+	return (i);
 }
 
 /**
@@ -117,35 +88,35 @@ unsigned int base_len(unsigned int num, int base)
 
 int printf_bin(va_list list)
 {
-  unsigned int num;
-  int i, len;
-  char *str;
-  char *rev_str;
+	unsigned int num;
+	int i, len;
+	char *str;
+	char *rev_str;
 
-  num = va_arg(list, unsigned int);
-  if (num == 0)
-    return (_putchar('0'));
-  if (num < 1)
-    return (-1);
-  len = base_len(num, 2);
-  str = malloc(sizeof(char) * len + 1);
-  if (str == NULL)
-    return (-1);
+	num = va_arg(list, unsigned int);
+	if (num == 0)
+		return (_putchar('0'));
+	if (num < 1)
+		return (-1);
+	len = base_len(num, 2);
+	str = malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (-1);
 
-  for (i = 0; num > 0; i++)
-    {
-      if (num % 2 == 0)
-	str[i] = '0';
-      else
-	str[i] = '1';
-      num = num / 2;
-    }
-  str[i] = '\0';
-  rev_str = rev_string(str);
-  if (rev_str == NULL)
-    return (-1);
-  _base(rev_str);
-  free(str);
-  free(rev_str);
-  return (len);
+	for (i = 0; num > 0; i++)
+	{
+		if (num % 2 == 0)
+			str[i] = '0';
+		else
+			str[i] = '1';
+		num = num / 2;
+	}
+	str[i] = '\0';
+	rev_str = rev_string(str);
+	if (rev_str == NULL)
+		return (-1);
+	_base(rev_str);
+	free(str);
+	free(rev_str);
+	return (len);
 }
