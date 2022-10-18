@@ -9,7 +9,7 @@ int printf_HEX(va_list val)
   int i;
   int *array;
   int counter = 0;
-  unsigned int num = va_arg(vl, unsigned int);
+  unsigned int num = va_arg(val, unsigned int);
   unsigned int temp = num;
   while (num / 16 != 0)
     {
@@ -23,7 +23,7 @@ int printf_HEX(va_list val)
       array[i] = temp % 16;
       temp /= 16;
     }
-  for (i = counter -1; i >= 0; i--)
+  for (i = counter - 1; i >= 0; i--)
     {
       if (array[i] > 9)
 	array[i] = array[i] + 7;
